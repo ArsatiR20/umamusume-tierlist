@@ -52,7 +52,8 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
     }, 100);
   };
   
-  // Add multiple cards at once with a specific uncap level
+  // Add multiple cards at once with a specific uncap level - commented out as unused
+  /*
   const addMultipleCards = (cardsToAdd, uncapLevel) => {
     const updatedOwnedCards = { ...ownedCards };
     cardsToAdd.forEach(card => {
@@ -60,6 +61,7 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
     });
     onOwnedCardsChange(updatedOwnedCards);
   };
+  */
   
   // Function removed as it was unused
   
