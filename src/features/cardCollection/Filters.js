@@ -61,10 +61,7 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
     onOwnedCardsChange(updatedOwnedCards);
   };
   
-  // Add all currently filtered cards
-  const addAllFilteredCards = (uncapLevel = 1) => {
-    addMultipleCards(filteredCards, uncapLevel);
-  };
+  // Function removed as it was unused
   
   // Group cards by character name and ID to avoid duplicates
   const uniqueCharacters = {};
@@ -89,12 +86,17 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
   const applyRarityFilter = React.useCallback((card) => {
     if (!filterSettings) return true;
     
-    // Get the appropriate array based on card rarity
-    let rarityArray;
-    if (card.rarity === 3) rarityArray = filterSettings.ssr;
-    else if (card.rarity === 2) rarityArray = filterSettings.sr;
-    else if (card.rarity === 1) rarityArray = filterSettings.r;
-    else return true; // If rarity doesn't match, include it
+    // Check rarity and get appropriate filter settings
+    if (card.rarity === 3) {
+      // SSR card
+      if (!filterSettings.ssr) return true;
+    } else if (card.rarity === 2) {
+      // SR card
+      if (!filterSettings.sr) return true;
+    } else if (card.rarity === 1) {
+      // R card
+      if (!filterSettings.r) return true;
+    } else return true; // If rarity doesn't match, include it
 
     // Check if the card's uncap level is allowed by the filter
     const cardUncapLevel = ownedCards[card.id] !== undefined ? ownedCards[card.id] : -1;

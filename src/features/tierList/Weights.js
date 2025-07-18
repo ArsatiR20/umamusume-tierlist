@@ -473,7 +473,7 @@ class Weights extends React.Component {
             let savedWeights = window.localStorage.getItem("weights");
             if (savedWeights !== null) {
                 savedWeights = JSON.parse(savedWeights);
-                if (savedWeights.version == defaultMANTState().version) {
+                if (savedWeights.version === defaultMANTState().version) {
                     this.state = savedWeights;
                     return this.props.onChange(this.state[this.state.currentState], this.state.general);
                 }
@@ -611,12 +611,12 @@ class Weights extends React.Component {
         return (
             <div className="weights">
                 <div className="weight-row">
-                    <input id="speed" type="image" className={this.state.currentState == "speed" ? "image-btn selected" : "image-btn"} src={SpeedIcon} onClick={this.onTypeChanged} alt="Speed"/>
-                    <input id="stamina" type="image" className={this.state.currentState == "stamina" ? "image-btn selected" : "image-btn"} src={StaminaIcon} onClick={this.onTypeChanged} alt="Stamina"/>
-                    <input id="power" type="image" className={this.state.currentState == "power" ? "image-btn selected" : "image-btn"} src={PowerIcon} onClick={this.onTypeChanged} alt="Power"/>
-                    <input id="guts" type="image" className={this.state.currentState == "guts" ? "image-btn selected" : "image-btn"} src={GutsIcon} onClick={this.onTypeChanged} alt="Guts"/>
-                    <input id="wisdom" type="image" className={this.state.currentState == "wisdom" ? "image-btn selected" : "image-btn"} src={WisdomIcon} onClick={this.onTypeChanged} alt="Wisdom"/>
-                    <input id="friend" type="image" className={this.state.currentState == "friend" ? "image-btn selected" : "image-btn"} src={FriendIcon} onClick={this.onTypeChanged} alt="Friend"/>
+                    <input id="speed" type="image" className={this.state.currentState === "speed" ? "image-btn selected" : "image-btn"} src={SpeedIcon} onClick={this.onTypeChanged} alt="Speed"/>
+                    <input id="stamina" type="image" className={this.state.currentState === "stamina" ? "image-btn selected" : "image-btn"} src={StaminaIcon} onClick={this.onTypeChanged} alt="Stamina"/>
+                    <input id="power" type="image" className={this.state.currentState === "power" ? "image-btn selected" : "image-btn"} src={PowerIcon} onClick={this.onTypeChanged} alt="Power"/>
+                    <input id="guts" type="image" className={this.state.currentState === "guts" ? "image-btn selected" : "image-btn"} src={GutsIcon} onClick={this.onTypeChanged} alt="Guts"/>
+                    <input id="wisdom" type="image" className={this.state.currentState === "wisdom" ? "image-btn selected" : "image-btn"} src={WisdomIcon} onClick={this.onTypeChanged} alt="Wisdom"/>
+                    <input id="friend" type="image" className={this.state.currentState === "friend" ? "image-btn selected" : "image-btn"} src={FriendIcon} onClick={this.onTypeChanged} alt="Friend"/>
                 </div>
                 <div className="weight-row">
                     <button id="weights-toggle" type="button" onClick={this.onToggleWeights}>{this.state.show ? "Hide Settings" : "Customize Settings"}</button>

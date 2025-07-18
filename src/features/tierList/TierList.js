@@ -90,7 +90,7 @@ class TierList extends React.Component {
             )
         }
     
-        let count = this.props.selectedCards.filter((c) => c.type == this.props.weights.type).length;
+        let count = this.props.selectedCards.filter((c) => c.type === this.props.weights.type).length;
         let dropdownOptions = [{value:"none", label:"None"}];
         let properties = Object.keys(supportCardProperties).sort();
         for (let i = 0; i < properties.length; i++) {
@@ -141,7 +141,7 @@ function processCards(cards, weights, selectedCards) {
         selectedCard.index = card;
         presentTypes[selectedCard.cardType] = true;
         cardsPerType[selectedCard.cardType].push(selectedCard);
-        if (selectedCard.cardType == 6) {
+        if (selectedCard.cardType === 6) {
             baseBondNeeded += 55 - selectedCard.sb
         } else {
             baseBondNeeded += 75 - selectedCard.sb
@@ -153,7 +153,7 @@ function processCards(cards, weights, selectedCards) {
 
     let preferredRainbowChances = [0,0,0,0,0];
     for (let i = 0; i < 5; i++) {
-        if (i != weights.type) {
+        if (i !== weights.type) {
             if(cardsPerType[i].length > 0) {
                 let minimum = 1;
                 if (weights.prioritize) {
@@ -179,7 +179,7 @@ function processCards(cards, weights, selectedCards) {
         let cardType = card.type;
         card.index = 6;
         let bondNeeded = baseBondNeeded;
-        if (cardType == 6) {
+        if (cardType === 6) {
             bondNeeded += 55 - card.sb
         } else {
             bondNeeded += 75 - card.sb
@@ -253,7 +253,7 @@ function processCards(cards, weights, selectedCards) {
         let rainbowTraining = 0;
         
         let rainbowOverride = 1;
-        if (cardType != 6) {
+        if (cardType !== 6) {
             let chanceOfSingleRainbow = 0;
             let cardsOfThisType = cardsPerType[cardType].slice();
             card.rainbowSpecialty = specialtyPercent;
@@ -268,7 +268,7 @@ function processCards(cards, weights, selectedCards) {
         
         // Calculate appearance rates on each training
         for (let stat = 0; stat < 5; stat++) {
-            if (stat == cardType) {
+            if (stat === cardType) {
                 rainbowTraining = specialtyPercent * rainbowDays * rainbowOverride;
                 daysPerTraining[stat] = specialtyPercent * daysToBond;
             } else {
@@ -324,7 +324,7 @@ function processCards(cards, weights, selectedCards) {
             info.non_rainbow_gains[6] += (daysOnThisTraining * gains[6] * card.energy_discount);
             info.non_rainbow_gains[6] += (daysOnThisTraining * gains[6] * card.fs_energy);
 
-            if (training == 4 && card.group) {
+            if (training === 4 && card.group) {
                 energyGain += daysOnThisTraining * card.wisdom_recovery / 5;
             }
         }
@@ -417,7 +417,7 @@ function CalculateTrainingGain(gains, weights, card, otherCards, trainingType, d
         }
     }
     
-    if (otherCards.length == 0) return trainingGains;
+    if (otherCards.length === 0) return trainingGains;
 
     const combinations = GetCombinations(otherCards);
 
@@ -446,9 +446,6 @@ function CalculateTrainingGain(gains, weights, card, otherCards, trainingType, d
             
             const combinationStatBonus = combinations[i].reduce((current, c) => current + c.stat_bonus[stat], 0);
             let base = gains[stat] + combinationStatBonus;
-            if (rainbow) {
-                base += card.fs_stats[stat];
-            }
 
             let combinationGains = (base 
                 * combinationTrainingBonus
@@ -598,7 +595,7 @@ function CalculateCombinationChance(combination, cards, trainingType) {
     }, 1);
     
     if (cards) {
-        const otherCards = cards.filter((c) => combination.findIndex((d) => c.index == d.index) === -1);
+        const otherCards = cards.filter((c) => combination.findIndex((d) => c.index === d.index) === -1);
         chance = otherCards.reduce((current, card) => {
             if (card.cardType === trainingType) {
                 return current * (1 - card.rainbowSpecialty);
