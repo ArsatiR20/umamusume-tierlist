@@ -2,7 +2,7 @@
   "name": "umamusume-tierlist",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://arsatir20.github.io/uma-tiers/",
+  "homepage": "https://arsatir20.github.io/umamusume-tierlist/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
