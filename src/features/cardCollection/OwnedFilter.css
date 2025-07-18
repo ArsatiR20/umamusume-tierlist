@@ -1,0 +1,45 @@
+.owned-filter {
+  margin-bottom: 20px;
+}
+
+.owned-filter h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.owned-filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.filter-option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.filter-option input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+.owned-filter-info {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.owned-filter-info p {
+  margin: 0;
+}

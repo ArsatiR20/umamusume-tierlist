@@ -1,5 +1,5 @@
 import React from 'react';
-import { supportCardProperties } from '../constants';
+import { supportCardProperties } from '../../data';
 
 function SupportCard(props) {
     let lit_up = "";
@@ -17,23 +17,28 @@ function SupportCard(props) {
 
     for(let i=0; i<3; i++) {
         let stat = props.stats[i];
-        if (stat == "none") continue;
+        if (stat === "none" || !stat) continue;
+        
+        // Make sure the card and property exist
+        if (!props.card || typeof props.card[stat] === 'undefined') continue;
+        
         let value = props.card[stat];
-        if (stat == "fs_bonus") {
-            console.log("pre: " + value);
+        if (stat === "fs_bonus" && props.card["unique_fs_bonus"]) {
             value *= props.card["unique_fs_bonus"];
-            console.log(value);
-        } else if (stat == "specialty_rate") {
+        } else if (stat === "specialty_rate" && props.card["unique_specialty"] && props.card["fs_specialty"]) {
             value = (value + 100) * props.card["unique_specialty"] * props.card["fs_specialty"] - 100;
         }
-        if (value < 1) {
-            value *= 100;
-        } else if (value < 2 && stat != "race_bonus") {
-            value -= 1;
-            value *= 100;
+        
+        if (!isNaN(value)) {
+            if (value < 1) {
+                value *= 100;
+            } else if (value < 2 && stat !== "race_bonus") {
+                value -= 1;
+                value *= 100;
+            }
+            value = Math.round(value);
+            statDisplays[i] = `${value}${supportCardProperties[stat]?.shorthand || ''}`;
         }
-        value = Math.round(value);
-        statDisplays[i] = `${value}${supportCardProperties[stat].shorthand}`;
     }
 
     const alreadySelected = props.selected.indexOf(props.charName) > -1;
@@ -44,8 +49,8 @@ function SupportCard(props) {
                 className={alreadySelected ? "support-card-image selected" : "support-card-image"}
                 name={props.id}
                 src={process.env.PUBLIC_URL + "/cardImages/support_card_s_" + props.id + ".png"}
-                title={props.charName}
-                alt={props.charName}
+                title={props.card.char_name_en ? `${props.card.char_name_en} (${props.charName})` : props.charName}
+                alt={props.card.char_name_en ? props.card.char_name_en : props.charName}
                 onClick={alreadySelected ? ()=>{} : props.onClick}
             />
             <span className="limit-breaks">
@@ -53,7 +58,7 @@ function SupportCard(props) {
                 <span className="lb-no">{dark}</span>
             </span>
             <span className="score" onClick={() => console.log(props.info)}>
-                {Math.round(props.score)}
+                {isNaN(props.score) ? '0' : Math.round(props.score).toString()}
             </span>
             <span className="stat-1">
                 {statDisplays[0]}

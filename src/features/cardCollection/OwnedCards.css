@@ -1,0 +1,223 @@
+/* Owned Cards Component */
+.owned-cards {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabs Navigation */
+.tabs-navigation {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6c757d;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #495057;
+}
+
+.tab-button.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Filter Section */
+.filter-section {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+/* Presets styling */
+.presets {
+  margin-bottom: 10px;
+}
+
+.presets button {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 3px 8px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  font-size: 14px;
+}
+
+.lb-yes {
+  color: aqua;
+}
+
+.lb-no {
+  color: #ccc;
+}
+
+.general-filters {
+  margin-bottom: 20px;
+}
+
+.general-filters table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f8f8f8;
+}
+
+.general-filters th, 
+.general-filters td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.general-filters th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.rarity-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.diamond-cell {
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.checkbox-cell {
+  text-align: center;
+}
+
+/* Owned Cards Filter Styles */
+.owned-filters {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  border: 1px solid #e0e8f0;
+}
+
+.owned-filters h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.owned-filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.filter-option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.filter-option input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+.owned-filter-info {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.owned-filter-info p {
+  margin: 0;
+}
+
+/* Owned Cards Table Styles */
+.owned-cards-table-container {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.owned-cards-table-container h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.owned-cards-table-container .card-count {
+  font-size: 14px;
+  font-weight: normal;
+  color: #666;
+}
+
+.owned-cards-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.owned-cards-table th,
+.owned-cards-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.owned-cards-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.owned-cards-table .card-image-cell {
+  width: 60px;
+}
+
+.owned-cards-table .card-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.owned-cards-table .remove-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.owned-cards-table .remove-button:hover {
+  background-color: #c82333;
+}

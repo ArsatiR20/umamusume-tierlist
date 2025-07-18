@@ -1,7 +1,6 @@
 import React from 'react';
 import SupportCard from './SupportCard';
-import events from '../card-events';
-import { supportCardProperties } from '../constants';
+import { events, supportCardProperties } from '../../data';
 import Select from 'react-select';
 
 const ordinal = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"];
@@ -24,7 +23,7 @@ class TierList extends React.Component {
     onDropdown1Changed(newValue) {
         let newSelections = this.state.dropdownSelections.slice();
         newSelections[0] = newValue.value;
-        console.log(newValue);
+        ////console.log(newValue);
         this.setState({dropdownSelections:newSelections});
     }
     onDropdown2Changed(newValue) {
@@ -261,7 +260,7 @@ function processCards(cards, weights, selectedCards) {
             card.offSpecialty = otherPercent;
             cardsOfThisType.push(card);
             for (let j = 0; j < cardsOfThisType.length; j++) {
-                console.log(cardsOfThisType);
+                ////console.log(cardsOfThisType);
                 chanceOfSingleRainbow += CalculateCombinationChance([cardsOfThisType[j]], cardsOfThisType, cardType);
             }
             rainbowOverride = 1 - (chanceOfPreferredRainbow * chanceOfSingleRainbow);

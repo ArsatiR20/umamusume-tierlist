@@ -1,0 +1,196 @@
+.owned-cards-container {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.owned-cards-filters {
+  margin-bottom: 15px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #f1f3f5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  flex-wrap: wrap;
+}
+
+.sort-options span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.sort-options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.rarity-filter {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+}
+
+.owned-cards-table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.owned-cards-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.card-image-cell {
+  width: 60px;
+  padding: 5px !important;
+}
+
+.card-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+}
+
+.card-thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.owned-cards-table th,
+.owned-cards-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.owned-cards-table th {
+  background-color: #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.owned-cards-table tr.owned {
+  background-color: #e8f4f8;
+}
+
+.owned-cards-table tr.owned td {
+  font-weight: 500;
+}
+
+.owned-cards-table tr:hover {
+  background-color: #f1f3f5;
+}
+
+.uncap-select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+}
+
+.add-button, .remove-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.add-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #218838;
+}
+
+.update-button {
+  background-color: #007bff;
+  color: white;
+  margin-right: 5px;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.owned-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.owned-cards-summary {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.bulk-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.add-all-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.owned-summary h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.owned-summary p {
+  margin: 5px 0;
+  font-size: 14px;
+}

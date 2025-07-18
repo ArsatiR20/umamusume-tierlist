@@ -1,12 +1,12 @@
 import React from 'react';
 import NumericInput from 'react-numeric-input';
-import SpeedIcon from '../icons/utx_ico_obtain_00.png';
-import StaminaIcon from '../icons/utx_ico_obtain_01.png';
-import PowerIcon from '../icons/utx_ico_obtain_02.png';
-import GutsIcon from '../icons/utx_ico_obtain_03.png';
-import WisdomIcon from '../icons/utx_ico_obtain_04.png';
-import FriendIcon from '../icons/utx_ico_obtain_05.png';
-import { lsTest } from '../utils';
+import SpeedIcon from '../../icons/utx_ico_obtain_00.png';
+import StaminaIcon from '../../icons/utx_ico_obtain_01.png';
+import PowerIcon from '../../icons/utx_ico_obtain_02.png';
+import GutsIcon from '../../icons/utx_ico_obtain_03.png';
+import WisdomIcon from '../../icons/utx_ico_obtain_04.png';
+import FriendIcon from '../../icons/utx_ico_obtain_05.png';
+import { lsTest } from '../../utils';
 
 function defaultGMState() {
     return {
@@ -611,12 +611,12 @@ class Weights extends React.Component {
         return (
             <div className="weights">
                 <div className="weight-row">
-                    <input id="speed" type="image" class={this.state.currentState == "speed" ? "image-btn selected" : "image-btn"} src={SpeedIcon} onClick={this.onTypeChanged} alt="Speed"/>
-                    <input id="stamina" type="image" class={this.state.currentState == "stamina" ? "image-btn selected" : "image-btn"} src={StaminaIcon} onClick={this.onTypeChanged} alt="Stamina"/>
-                    <input id="power" type="image" class={this.state.currentState == "power" ? "image-btn selected" : "image-btn"} src={PowerIcon} onClick={this.onTypeChanged} alt="Power"/>
-                    <input id="guts" type="image" class={this.state.currentState == "guts" ? "image-btn selected" : "image-btn"} src={GutsIcon} onClick={this.onTypeChanged} alt="Guts"/>
-                    <input id="wisdom" type="image" class={this.state.currentState == "wisdom" ? "image-btn selected" : "image-btn"} src={WisdomIcon} onClick={this.onTypeChanged} alt="Wisdom"/>
-                    <input id="friend" type="image" class={this.state.currentState == "friend" ? "image-btn selected" : "image-btn"} src={FriendIcon} onClick={this.onTypeChanged} alt="Friend"/>
+                    <input id="speed" type="image" className={this.state.currentState == "speed" ? "image-btn selected" : "image-btn"} src={SpeedIcon} onClick={this.onTypeChanged} alt="Speed"/>
+                    <input id="stamina" type="image" className={this.state.currentState == "stamina" ? "image-btn selected" : "image-btn"} src={StaminaIcon} onClick={this.onTypeChanged} alt="Stamina"/>
+                    <input id="power" type="image" className={this.state.currentState == "power" ? "image-btn selected" : "image-btn"} src={PowerIcon} onClick={this.onTypeChanged} alt="Power"/>
+                    <input id="guts" type="image" className={this.state.currentState == "guts" ? "image-btn selected" : "image-btn"} src={GutsIcon} onClick={this.onTypeChanged} alt="Guts"/>
+                    <input id="wisdom" type="image" className={this.state.currentState == "wisdom" ? "image-btn selected" : "image-btn"} src={WisdomIcon} onClick={this.onTypeChanged} alt="Wisdom"/>
+                    <input id="friend" type="image" className={this.state.currentState == "friend" ? "image-btn selected" : "image-btn"} src={FriendIcon} onClick={this.onTypeChanged} alt="Friend"/>
                 </div>
                 <div className="weight-row">
                     <button id="weights-toggle" type="button" onClick={this.onToggleWeights}>{this.state.show ? "Hide Settings" : "Customize Settings"}</button>
@@ -625,8 +625,8 @@ class Weights extends React.Component {
                     this.state.show &&
                     <>
                     <div className="weight-row">
-                        <div class="section-header">Scenario</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Scenario</div>
+                        <div className="section-explanation">
                             Which scenario you're playing in.<br/>
                             Changes the stat gains from trainings and some default values.
                         </div>
@@ -637,118 +637,118 @@ class Weights extends React.Component {
                         <button id="reset-weights-URA" type="button" onClick={this.onURAReset}>URA</button>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Bond Rate</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Bond Rate</div>
+                        <div className="section-explanation">
                             The fewer bond per turn, the more Starting Bond matters.<br/>
                             This is the bond over every card, so 14 = two cards per day, etc.
                         </div>
-                        <label for="bondPerDay">Bond Gained per Turn:</label>
+                        <label htmlFor="bondPerDay">Bond Gained per Turn:</label>
                         <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="bondPerDay" value={this.state.general.bondPerDay} min={1} max={50} step={0.1}/>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Optional Races</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Optional Races</div>
+                        <div className="section-explanation">
                             How many of each optional race class you do, for calculating Race Bonus points.
                         </div>
-                        <label for="races.0">G1</label>
+                        <label htmlFor="races.0">G1</label>
                         <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="races.0" value={this.state.general.races[0]} min={0} max={30} step={1}/>
-                        <label for="races.1">G2/G3</label>
+                        <label htmlFor="races.1">G2/G3</label>
                         <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="races.1" value={this.state.general.races[1]} min={0} max={30} step={1}/>
-                        <label for="races.2">OP/Pre-OP</label>
+                        <label htmlFor="races.2">OP/Pre-OP</label>
                         <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="races.2" value={this.state.general.races[2]} min={0} max={30} step={1}/>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Scenario Specific</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Scenario Specific</div>
+                        <div className="section-explanation">
                             Multiplier accounts for MANT items and GL friendship songs.<br/>
                             Bonus Specialty is for Grand Live song bonuses.
                         </div>
-                        <label for="multi">Multiplier:</label>
+                        <label htmlFor="multi">Multiplier:</label>
                         <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="multi" value={this.state.general.multi} min={1} max={2.2} step={0.05}/>
-                        <label for="bonusSpec">Bonus Specialty:</label>
+                        <label htmlFor="bonusSpec">Bonus Specialty:</label>
                         <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="bonusSpec" value={this.state.general.bonusSpec} min={-1} max={95} step={5}/>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Stat Weights</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Stat Weights</div>
+                        <div className="section-explanation">
                             How much score each point of the given stat/resource gives.
                         </div>
-                        <label for="stats.0">Speed</label>
+                        <label htmlFor="stats.0">Speed</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.0" value={this.state[this.state.currentState].stats[0]} min={0} max={3} step={0.1}/>
-                        <label for="stats.1">Stamina</label>
+                        <label htmlFor="stats.1">Stamina</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.1" value={this.state[this.state.currentState].stats[1]} min={0} max={3} step={0.1}/>
-                        <label for="stats.2">Power</label>
+                        <label htmlFor="stats.2">Power</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.2" value={this.state[this.state.currentState].stats[2]} min={0} max={3} step={0.1}/>
-                        <label for="stats.3">Guts</label>
+                        <label htmlFor="stats.3">Guts</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.3" value={this.state[this.state.currentState].stats[3]} min={0} max={3} step={0.1}/>
-                        <label for="stats.4">Wisdom</label>
+                        <label htmlFor="stats.4">Wisdom</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.4" value={this.state[this.state.currentState].stats[4]} min={0} max={3} step={0.1}/>
-                        <br/><br/><label for="stats.5">Skill Points</label>
+                        <br/><br/><label htmlFor="stats.5">Skill Points</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.5" value={this.state[this.state.currentState].stats[5]} min={0} max={3} step={0.1}/>
-                        <label for="stats.6">Energy</label>
+                        <label htmlFor="stats.6">Energy</label>
                         <NumericInput onChange={this.onSettingChanged} type="number" id="stats.6" value={this.state[this.state.currentState].stats[6]} min={0} max={3} step={0.1}/>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Average Motivation</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Average Motivation</div>
+                        <div className="section-explanation">
                             You get 10% per motivation stage. This affects Motivation Bonus.
                         </div>
-                        <input type="range" onChange={this.onMotivationChanged} min={-0.2} max={0.2} step={0.05} value={this.state.general.motivation} class="slider" id="motivation"/>
-                        <label for="minimum">{this.state.general.motivation * 100}%</label>
+                        <input type="range" onChange={this.onMotivationChanged} min={-0.2} max={0.2} step={0.05} value={this.state.general.motivation} className="slider" id="motivation"/>
+                        <label htmlFor="minimum">{this.state.general.motivation * 100}%</label>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Stat Cap</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Stat Cap</div>
+                        <div className="section-explanation">
                             This will cap the stat gain, penalizing cards that only raise one stat.<br/>
                             Lower this if you tend to cap your stats very early to strengthen cards that raise multiple.
                         </div>
-                        <input type="range" onChange={this.onCapChanged} min={300} max={1000} step={20} value={this.state[this.state.currentState].cap} class="slider" id="cap"/>
-                        <label for="cap">{this.state[this.state.currentState].cap}</label>
+                        <input type="range" onChange={this.onCapChanged} min={300} max={1000} step={20} value={this.state[this.state.currentState].cap} className="slider" id="cap"/>
+                        <label htmlFor="cap">{this.state[this.state.currentState].cap}</label>
                     </div>
                     <div className="weight-row">
-                        <div class="section-header">Minimum Training Value</div>
-                        <div class="section-explanation">
+                        <div className="section-header">Minimum Training Value</div>
+                        <div className="section-explanation">
                             Any training combination that gives less than this will be ignored.<br/>
                             Increase this to ignore trainings you wouldn't do, such as lone rainbows.<br/>
                             Solo MLB Kitasan rainbow is about 40, depending on the weights, for reference.
                         </div>
-                        <input type="range" onChange={this.onMinimumChanged} min={20} max={100} step={5} value={this.state[this.state.currentState].minimum} class="slider" id="minimum"/>
-                        <label for="minimum">{this.state[this.state.currentState].minimum}</label>
+                        <input type="range" onChange={this.onMinimumChanged} min={20} max={100} step={5} value={this.state[this.state.currentState].minimum} className="slider" id="minimum"/>
+                        <label htmlFor="minimum">{this.state[this.state.currentState].minimum}</label>
                     </div>
                     {this.state.currentState !== "friend" &&
                         <div className="weight-row">
-                            <div class="section-header">Rainbow Rate Alterations</div>
-                            <div class="section-explanation">
+                            <div className="section-header">Rainbow Rate Alterations</div>
+                            <div className="section-explanation">
                                 If this option is disabled, then single rainbows in this stat<br/>
                                 will be ignored if any other stat is rainbowing at the same time.
                             </div>
                             <input type="checkbox" onChange={this.onSettingChanged} checked={this.state[this.state.currentState].prioritize} id="prioritize"/>
-                            <label for="prioritize">Prioritize This Stat</label>
-                            <div class="section-explanation">
+                            <label htmlFor="prioritize">Prioritize This Stat</label>
+                            <div className="section-explanation">
                                 If this option is enabled, then all rainbows will be ignored<br/>
                                 in this stat unless it's summer. Assumes 8 summer turns. Sorry Bakushin.
                             </div>
                             <input type="checkbox" onChange={this.onSettingChanged} checked={this.state[this.state.currentState].onlySummer} id="onlySummer"/>
-                            <label for="onlySummer">Only Train In Summer</label>
+                            <label htmlFor="onlySummer">Only Train In Summer</label>
                         </div>
                     }
                     </>
                 }
                 <div className="weight-row">
-                    <div class="section-header">Uma's Bonuses</div>
-                    <div class="section-explanation">
+                    <div className="section-header">Uma's Bonuses</div>
+                    <div className="section-explanation">
                         The percentages on the uma's stat screen, converted to decimal. <br/>
                         For example, 10% is 1.1, and 15% is 1.15.
                     </div>
-                    <label for="umaBonus.0">Speed</label>
+                    <label htmlFor="umaBonus.0">Speed</label>
                     <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="umaBonus.0" value={this.state.general.umaBonus[0]} min={0.7} max={1.3} step={0.01} precision={2}/>
-                    <label for="umaBonus.1">Stamina</label>
+                    <label htmlFor="umaBonus.1">Stamina</label>
                     <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="umaBonus.1" value={this.state.general.umaBonus[1]} min={0.7} max={1.3} step={0.01} precision={2}/>
-                    <label for="umaBonus.2">Power</label>
+                    <label htmlFor="umaBonus.2">Power</label>
                     <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="umaBonus.2" value={this.state.general.umaBonus[2]} min={0.7} max={1.3} step={0.01} precision={2}/>
-                    <label for="umaBonus.3">Guts</label>
+                    <label htmlFor="umaBonus.3">Guts</label>
                     <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="umaBonus.3" value={this.state.general.umaBonus[3]} min={0.7} max={1.3} step={0.01} precision={2}/>
-                    <label for="umaBonus.4">Wisdom</label>
+                    <label htmlFor="umaBonus.4">Wisdom</label>
                     <NumericInput onChange={this.onGeneralSettingChanged} type="number" id="umaBonus.4" value={this.state.general.umaBonus[4]} min={0.7} max={1.3} step={0.01} precision={2}/>
                 </div>
             </div>

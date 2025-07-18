@@ -1,11 +1,11 @@
 import React from 'react';
-import SpeedIcon from '../icons/utx_ico_obtain_00.png';
-import StaminaIcon from '../icons/utx_ico_obtain_01.png';
-import PowerIcon from '../icons/utx_ico_obtain_02.png';
-import GutsIcon from '../icons/utx_ico_obtain_03.png';
-import WisdomIcon from '../icons/utx_ico_obtain_04.png';
-import FriendIcon from '../icons/utx_ico_obtain_05.png';
-import events from '../card-events';
+import SpeedIcon from '../../icons/utx_ico_obtain_00.png';
+import StaminaIcon from '../../icons/utx_ico_obtain_01.png';
+import PowerIcon from '../../icons/utx_ico_obtain_02.png';
+import GutsIcon from '../../icons/utx_ico_obtain_03.png';
+import WisdomIcon from '../../icons/utx_ico_obtain_04.png';
+import FriendIcon from '../../icons/utx_ico_obtain_05.png';
+import { events } from '../../data';
 const raceRewards = [
     10,
     8,
@@ -49,13 +49,13 @@ function SelectedCards(props) {
         }
 
         cards.push(
-            <div className="support-card">
+            <div className="support-card" key={`selected-card-${card.id}-${i}`}>
                 <img
                     className="support-card-image"
                     name={card.id}
                     src={process.env.PUBLIC_URL + "/cardImages/support_card_s_" + card.id + ".png"}
-                    title={card.id}
-                    alt={card.id}
+                    title={card.char_name_en ? `${card.char_name_en} (${card.char_name})` : card.char_name}
+                    alt={card.char_name_en ? card.char_name_en : card.char_name}
                     onClick={() => props.onClick(card)}
                 />
                 <img
@@ -88,8 +88,8 @@ function SelectedCards(props) {
         statsNoTraining[stat] = Math.round(statsNoTraining[stat]);
     }
 
-    console.log("Stat gains without training: ");
-    console.log(statsNoTraining);
+    ////console.log("Stat gains without training: ");
+    ////console.log(statsNoTraining);
 
     return (
         <div className="selected-cards">
@@ -102,8 +102,8 @@ function SelectedCards(props) {
             <div>
                 Total Race Bonus: <b>{raceBonus}</b> <i>(aim for 35 for URA/Aoharu, 50 for MANT)</i>
             </div>
-            <div class="link">
-                <a href={getEventHelperURL(props.selectedCards)} target="_blank">Open in Gametora Event Helper</a>
+            <div className="link">
+                <a href={getEventHelperURL(props.selectedCards)} target="_blank" rel="noreferrer">Open in Gametora Event Helper</a>
             </div>
             <div>
                 Presets:
