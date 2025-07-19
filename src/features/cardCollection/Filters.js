@@ -181,7 +181,7 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
         <div className="filter-row">
           <input
             type="text"
-            placeholder="Search by character name..."
+            placeholder="Search by character name (Global/JP)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
@@ -241,7 +241,7 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
           <thead>
             <tr>
               <th>Image</th>
-              <th>Character</th>
+              <th>Character Name</th>
               <th>Rarity</th>
               <th>Uncap Level</th>
               <th>Actions</th>
@@ -266,7 +266,7 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
                       }}
                     />
                   </td>
-                  <td>{displayName}</td>
+                  <td style={{ width: '400px' }}>{displayName}</td>
                   <td>{getRarityText(card.rarity)}</td>
                   <td>
                     <select 
@@ -288,7 +288,7 @@ const Filters = ({ onOwnedCardsChange, onCardsChanged, ownedCards, filterSetting
                       <option value="4">Uncap 4</option>
                     </select>
                   </td>
-                  <td>
+                  <td style={{ width: '200px' }}>
                     {isOwned ? (
                       <div className="action-buttons">
                         <button 

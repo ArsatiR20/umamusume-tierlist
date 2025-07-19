@@ -59,16 +59,16 @@ class OwnedCard extends React.Component {
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Name</th>
+                                    <th>Character Name</th>
                                     <th>Rarity</th>
-                                    <th>Uncap</th>
+                                    <th>Uncap Level</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {ownedCardsList.map(card => {
                                     // Display name (English if available, otherwise Japanese)
-                                    const displayName = card.char_name_en || card.char_name || 'Unknown';
+                                    const displayName = `${card.char_name_en} (${card.char_name})` || card.char_name || 'Unknown';
                                     
                                     return (
                                         <tr key={card.id}>
@@ -83,10 +83,10 @@ class OwnedCard extends React.Component {
                                                     }}
                                                 />
                                             </td>
-                                            <td>{displayName}</td>
+                                            <td style={{ width: '400px' }}>{displayName}</td>
                                             <td>{this.getRarityText(card.rarity)}</td>
                                             <td>Uncap {card.uncapLevel}</td>
-                                            <td>
+                                            <td style={{ width: '230px' }}>
                                                 <button 
                                                     onClick={() => this.handleDeleteCard(card.id)}
                                                     className="delete-button"
